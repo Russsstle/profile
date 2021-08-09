@@ -15,9 +15,9 @@ class chatRoom extends React.Component {
         messages:[],
         inputMessage:'',
         currentUser:'',
-        serverUrl: 'http://localhost:3000'
+        serverUrl: 'http://139.162.120.153:3000'
       }
-      this.socket = io('http://localhost:3000', { transports: ['websocket', 'polling', 'flashsocket']})
+      this.socket = io(this.state.serverUrl, { transports: ['websocket', 'polling', 'flashsocket']})
       this.joinRoom = this.joinRoom.bind(this);
       this.formatMessage = this.formatMessage.bind(this);
       this.getMessage = this.getMessage.bind(this);

@@ -21,6 +21,7 @@ class contact extends React.Component {
       const emailValidation = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (emailValidation.test(params.email)) {
         await axios.post('/api/contact', {params})
+        alert('Email Sumitted')
       } else {
         alert('Incorrect Email')
       }

@@ -13,7 +13,7 @@ class rooms extends React.Component {
             roomLinks: [],
             roomList:[],
             room:'',
-            serverUrl: 'http://localhost:3000'
+            serverUrl: 'https://139.162.120.153:3000'
         }
             
         this.createRoom = this.createRoom.bind(this);
