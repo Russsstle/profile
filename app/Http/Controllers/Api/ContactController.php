@@ -26,11 +26,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        // the message
-        $msg = $request->input('params.content');
-        Mail::raw($msg, function ($message) {
+        Mail::send([], [], function ($message) use ($request) {
             $message->to(env('MAIL_USERNAME'))
-              ->subject($request->input('params.name'));
+                    ->subject($request->input('params.name'))
+                    ->from(env('MAIL_USERNAME'))
+                    ->setBody($request->input('params.content') . '<br/> - ' . $request->input('params.email'), "text/html");
           }); 
     }
 
