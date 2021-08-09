@@ -15,9 +15,8 @@ class chatRoom extends React.Component {
         messages:[],
         inputMessage:'',
         currentUser:'',
-        serverUrl: 'http://139.162.120.153:3000'
       }
-      this.socket = io(this.state.serverUrl, { transports: ['websocket', 'polling', 'flashsocket']})
+      this.socket = io('http://russelljohnsantos.com:3000', { transports: ['websocket', 'polling', 'flashsocket']})
       this.joinRoom = this.joinRoom.bind(this);
       this.formatMessage = this.formatMessage.bind(this);
       this.getMessage = this.getMessage.bind(this);
@@ -68,7 +67,7 @@ class chatRoom extends React.Component {
       const room = this.state.roomname;
       var username = prompt("Please enter your username");
       if (username !== null && username.trim() !== '') {
-        const result = await axios.post(this.state.serverUrl + '/fetchroom', {room, username})
+        const result = await axios.post('http://russelljohnsantos.com:3000/fetchroom', {room, username})
         if(result.data !== true && username.length < 11) {
           this.socket.emit('joinRoom', {room, username})
           this.socket.on('userConnect', (user) => {

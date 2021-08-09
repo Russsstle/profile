@@ -13,11 +13,10 @@ class rooms extends React.Component {
             roomLinks: [],
             roomList:[],
             room:'',
-            serverUrl: 'http://139.162.120.153:3000'
         }
             
         this.createRoom = this.createRoom.bind(this);
-        this.socket = io(this.state.serverUrl, { transports: ['websocket', 'polling', 'flashsocket']})
+        this.socket = io('http://russelljohnsantos.com:3000', { transports: ['websocket', 'polling', 'flashsocket']})
         this.generateRooms = this.generateRooms.bind(this);
         }
     
