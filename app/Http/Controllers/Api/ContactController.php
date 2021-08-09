@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ContactController extends Controller
      */
     public function index( Request $request)
     {
-        var_dump('sadas');
+ 
     }
 
     /**
@@ -25,13 +26,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-
         // the message
         $msg = $request->input('params.content');
-
-        // send email
-        return mail($request->input('params.email'), $request->input('params.name'), $msg);
-       
+        Mail::raw($msg, function ($message) {
+            $message->to(env('MAIL_USERNAME'))
+              ->subject($request->input('params.name'));
+          }); 
     }
 
   
