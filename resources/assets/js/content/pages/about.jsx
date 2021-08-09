@@ -89,21 +89,21 @@ class about extends React.Component {
                 </div>
                 <div className="collapsible">
                     <input id="collapsible3" type="checkbox" name="collapsible"/>
-                    <label htmlFor="collapsible3" className="white">933 Website</label>
+                    <label htmlFor="collapsible3" className="white">933 Website (2019)</label>
                     <div className="collapsible-body">
                     <span>- An infosite that has an admin side for configuration.</span>
                     </div>
                 </div>
                 <div className="collapsible">
                     <input id="collapsible4" type="checkbox" name="collapsible"/>
-                    <label htmlFor="collapsible4" className="white">Accounting System</label>
+                    <label htmlFor="collapsible4" className="white">Accounting System (2019)</label>
                     <div className="collapsible-body">
                     <span>A system that allows you to record incomes and expenses, track them and viewing reports</span>
                     </div>
                 </div>
                 <div className="collapsible">
                     <input id="collapsible5" type="checkbox" name="collapsible"/>
-                    <label htmlFor="collapsible5" className="white">HR Management System</label>
+                    <label htmlFor="collapsible5" className="white">HR Management System (2019)</label>
                     <div className="collapsible-body">
                     <span>a management system that tracks attendances, leaves, and attachments.</span>
                     </div>
