@@ -32,6 +32,7 @@ class ContactController extends Controller
             'subject' =>$request->input('params.name'),
             'messagenote' => $request->input('params.content') . '<br/> - ' . $request->input('params.email'),
           );
+          Mail::to($data['to'])->send(new ComposeMail($data));
         // $username = env('MAIL_USERNAME');
         // Mail::send([],[], function ($message) use ($request, $username) {
         //     $message->to($username)
