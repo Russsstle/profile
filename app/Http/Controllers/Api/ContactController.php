@@ -26,7 +26,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        Mail::send([], [], function ($message) use ($request) {
+        Mail::send([],[], function ($message) use ($request) {
             $message->to(env('MAIL_USERNAME'))
                     ->subject($request->input('params.name'))
                     ->from(env('MAIL_USERNAME'))
