@@ -29,7 +29,7 @@ class ContactController extends Controller
      
           Mail::send([], [], function ($message) use ($request) {
             $message->from(env('MAIL_USERNAME'))
-                    ->to($username)
+                    ->to(env('MAIL_USERNAME'))
                     ->setBody($request->input('params.content') . '<br/> - ' . $request->input('params.email'), "text/html");
           });
         // $username = env('MAIL_USERNAME');
