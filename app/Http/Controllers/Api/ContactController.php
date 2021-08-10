@@ -28,8 +28,10 @@ class ContactController extends Controller
     {
         $username =env('MAIL_USERNAME');
           Mail::send([], [], function ($message) use ($request, $username) {
+              var_dump($username);
+              var_dump($request);
             $message->from($username)
-                    ->to(Array($username=>"Contact Inquiry"))
+                    ->to($username)
                     ->setBody($request->input('params.content') . '<br/> - ' . $request->input('params.email'), "text/html");
           });
         // $username = env('MAIL_USERNAME');
