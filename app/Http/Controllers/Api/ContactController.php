@@ -26,13 +26,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $data = array(
-            'from' => env('MAIL_USERNAME'),
-            'to' => env('MAIL_USERNAME'),
-            'subject' =>$request->input('params.name'),
-            'messagenote' => $request->input('params.content') . '<br/> - ' . $request->input('params.email'),
-          );
-          Mail::to($data['to'])->send(new ComposeMail($data));
+     
+          Mail::send([], [], function ($message) use ($request) {
+            $message->from(env('MAIL_USERNAME'))
+                    ->to($username)
+                    ->setBody($request->input('params.content') . '<br/> - ' . $request->input('params.email'), "text/html");
+          });
         // $username = env('MAIL_USERNAME');
         // Mail::send([],[], function ($message) use ($request, $username) {
         //     $message->to($username)
